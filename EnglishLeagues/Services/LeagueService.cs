@@ -182,11 +182,11 @@ namespace EnglishLeagues.Services
             Dictionary<string, ScoreDifferences> league2Dict = GetBestDifferenceDict(league2);
             Dictionary<string, ScoreDifferences> league3Dict = GetBestDifferenceDict(league3);
             var league1BestStat = league1Dict.FirstOrDefault(x => x.Value.ScoreDiff == league1Dict.Values.Max(o => o.ScoreDiff) 
-            && x.Value.Score == league1Dict.Values.Max(x => x.Score));
+            || x.Value.Score == league1Dict.Values.Max(x => x.Score));
             var league2BestStat = league2Dict.FirstOrDefault(x => x.Value.ScoreDiff == league2Dict.Values.Max(o => o.ScoreDiff) 
-            && x.Value.Score == league2Dict.Values.Max(x => x.Score));
+            || x.Value.Score == league2Dict.Values.Max(x => x.Score));
             var league3BestStat = league3Dict.FirstOrDefault(x => x.Value.ScoreDiff == league3Dict.Values.Max(o => o.ScoreDiff) 
-            && x.Value.Score == league3Dict.Values.Max(x => x.Score));
+            || x.Value.Score == league3Dict.Values.Max(x => x.Score));
             bestStat.Add(new BestStatistic { 
                 Name = league1BestStat.Key, 
                 Scored = league1BestStat.Value.Score,
