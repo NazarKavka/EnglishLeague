@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<h2>Best Attack Team</h2>
+@foreach (var x in ViewBag.BestTeams)
+{
+    <div>
+        @x.Team;
+        @x.Score;
+    </div>
+}
+<h2>Best Defence Team</h2>
+@foreach (var x in ViewBag.BestDefTeams)
+{
+    <div>
+        @x.Team;
+        @x.Score;
+    </div>
+}
+<h2>Best Difference Team</h2>
+@foreach (var x in ViewBag.BestStatTeams)
+{
+    <div>
+        Name: @x.Name;
+        Scored: @x.Scored;
+        Missed: @x.Missed;
+        Difference: @x.Difference();
+    </div>
+}
+<h2>Most Result Day</h2>
+<div>
+    Round: @ViewBag.MostResultDay.DayName;
+    Score: @ViewBag.MostResultDay.Score;
+    League: @ViewBag.MostResultDay.LeagueName;
+</div>
